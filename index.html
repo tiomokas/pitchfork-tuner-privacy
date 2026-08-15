@@ -5,72 +5,155 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Pitch Fork Tuner</title>
 <style>
+  * { box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     max-width: 720px;
     margin: 0 auto;
-    padding: 40px 20px 60px;
+    padding: 24px 20px 60px;
     line-height: 1.6;
     background-color: #333333;
     color: #E8E8E8;
   }
-  .logo-wrap { text-align: center; margin-bottom: 24px; }
-  .logo-wrap img { width: 96px; height: 96px; border-radius: 20px; }
-  h1 { text-align: center; border-bottom: 2px solid #C9956A; padding-bottom: 12px; color: #FFFFFF; }
+  .top-bar { display: flex; justify-content: flex-end; }
+  .lang-switch { display: flex; gap: 6px; }
+  .lang-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: #444444; border: 1px solid #555555; border-radius: 8px;
+    padding: 6px 10px; cursor: pointer; color: #E8E8E8; font-size: 14px;
+  }
+  .lang-btn.active { background: #C9956A; border-color: #C9956A; color: #222222; font-weight: 600; }
+  .lang-btn .flag { font-size: 16px; }
+  .logo-wrap { text-align: center; margin-top: 16px; margin-bottom: 4px; }
+  .logo-wrap img { width: 140px; }
+  .subtitle { text-align: center; color: #C9956A; font-size: 14px; letter-spacing: 0.3px; margin-bottom: 24px; }
+  h1 { text-align: center; border-bottom: 2px solid #C9956A; padding-bottom: 12px; color: #FFFFFF; font-size: 24px; }
   h2 { color: #C9956A; margin-top: 32px; }
   strong { color: #E3B98F; }
   a { color: #E3B98F; }
   code { background-color: #444444; padding: 2px 6px; border-radius: 4px; }
   .updated { text-align: center; color: #AAAAAA; }
+  [data-lang-block] { display: none; }
+  [data-lang-block].visible { display: block; }
 </style>
 </head>
 <body>
 
-<div class="logo-wrap">
-  <img src="icon.png" alt="Pitch Fork Tuner logo">
+<div class="top-bar">
+  <div class="lang-switch">
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')"><span class="flag">🇬🇧</span>EN</button>
+    <button class="lang-btn" id="btn-pt" onclick="setLang('pt')"><span class="flag">🇵🇹</span>PT</button>
+  </div>
 </div>
 
-<h1>Privacy Policy — Pitch Fork Tuner</h1>
-<p class="updated"><strong>Last updated:</strong> August 15, 2026</p>
+<div class="logo-wrap">
+  <img src="logo.svg" alt="Pitch Fork Tuner logo">
+</div>
+<p class="subtitle" data-lang-block data-lang="en">Metronome + dB Meter</p>
+<p class="subtitle" data-lang-block data-lang="pt">Metrónomo + Medidor de dB's</p>
 
-<h2>Overview</h2>
-<p>Pitch Fork Tuner ("the App") is a native Android application providing chromatic tuner, metronome, and decibel meter functionality for musical instruments. This Privacy Policy explains how the App handles user data.</p>
+<!-- ENGLISH -->
+<div data-lang-block data-lang="en">
+  <h1>Privacy Policy — Pitch Fork Tuner</h1>
+  <p class="updated"><strong>Last updated:</strong> August 15, 2026</p>
 
-<h2>Data Collection</h2>
-<p><strong>The App does not collect, store, transmit, or share any personal data.</strong></p>
-<ul>
-  <li>No account creation or login is required or offered.</li>
-  <li>No data is sent to any server. The App has no network/internet functionality.</li>
-  <li>No analytics, advertising, or tracking SDKs are integrated.</li>
-  <li>No data is shared with third parties, because no data leaves the device.</li>
-</ul>
+  <h2>Overview</h2>
+  <p>Pitch Fork Tuner ("the App") is a native Android application providing chromatic tuner, metronome, and decibel meter functionality for musical instruments. This Privacy Policy explains how the App handles user data.</p>
 
-<h2>Microphone Permission</h2>
-<p>The App requests the <code>RECORD_AUDIO</code> permission solely to detect musical pitch (for the tuner) and measure sound level (for the decibel meter). Audio captured through the microphone is:</p>
-<ul>
-  <li>Processed entirely <strong>on-device</strong>, in real time.</li>
-  <li><strong>Never recorded, saved, stored, or transmitted anywhere.</strong></li>
-  <li>Discarded immediately after each analysis frame.</li>
-</ul>
-<p>You can revoke microphone access at any time via Android Settings → Apps → Pitch Fork Tuner → Permissions. The tuner and decibel meter features will not function without it; the metronome does not require microphone access.</p>
+  <h2>Data Collection</h2>
+  <p><strong>The App does not collect, store, transmit, or share any personal data.</strong></p>
+  <ul>
+    <li>No account creation or login is required or offered.</li>
+    <li>No data is sent to any server. The App has no network/internet functionality.</li>
+    <li>No analytics, advertising, or tracking SDKs are integrated.</li>
+    <li>No data is shared with third parties, because no data leaves the device.</li>
+  </ul>
 
-<h2>Data Stored Locally</h2>
-<p>The App stores the following data locally on your device only (never transmitted):</p>
-<ul>
-  <li>Your custom tuning presets.</li>
-  <li>Your favorite tunings and their display order.</li>
-  <li>App preferences (A4 reference pitch, microphone sensitivity, in-tune tolerance, app language).</li>
-</ul>
-<p>This data stays on your device and is removed if you uninstall the App. It is never backed up to any server controlled by the developer.</p>
+  <h2>Microphone Permission</h2>
+  <p>The App requests the <code>RECORD_AUDIO</code> permission solely to detect musical pitch (for the tuner) and measure sound level (for the decibel meter). Audio captured through the microphone is:</p>
+  <ul>
+    <li>Processed entirely <strong>on-device</strong>, in real time.</li>
+    <li><strong>Never recorded, saved, stored, or transmitted anywhere.</strong></li>
+    <li>Discarded immediately after each analysis frame.</li>
+  </ul>
+  <p>You can revoke microphone access at any time via Android Settings → Apps → Pitch Fork Tuner → Permissions. The tuner and decibel meter features will not function without it; the metronome does not require microphone access.</p>
 
-<h2>Children's Privacy</h2>
-<p>The App does not knowingly collect any information from anyone, including children under 13, because it does not collect information from anyone at all.</p>
+  <h2>Data Stored Locally</h2>
+  <p>The App stores the following data locally on your device only (never transmitted):</p>
+  <ul>
+    <li>Your custom tuning presets.</li>
+    <li>Your favorite tunings and their display order.</li>
+    <li>App preferences (A4 reference pitch, microphone sensitivity, in-tune tolerance, app language).</li>
+  </ul>
+  <p>This data stays on your device and is removed if you uninstall the App. It is never backed up to any server controlled by the developer.</p>
 
-<h2>Changes to This Policy</h2>
-<p>If this Privacy Policy is updated, the "Last updated" date above will change. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+  <h2>Children's Privacy</h2>
+  <p>The App does not knowingly collect any information from anyone, including children under 13, because it does not collect information from anyone at all.</p>
 
-<h2>Contact</h2>
-<p>Questions about this Privacy Policy can be sent to: <strong>info@alexsouisa.eu</strong></p>
+  <h2>Changes to This Policy</h2>
+  <p>If this Privacy Policy is updated, the "Last updated" date above will change. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this Privacy Policy can be sent to: <strong>info@alexsouisa.eu</strong></p>
+</div>
+
+<!-- PORTUGUESE -->
+<div data-lang-block data-lang="pt">
+  <h1>Política de Privacidade — Pitch Fork Tuner</h1>
+  <p class="updated"><strong>Última atualização:</strong> 15 de agosto de 2026</p>
+
+  <h2>Visão geral</h2>
+  <p>Pitch Fork Tuner ("a App") é uma aplicação nativa Android que disponibiliza afinador cromático, metrónomo e medidor de decibéis para instrumentos musicais. Esta Política de Privacidade explica como a App trata os dados do utilizador.</p>
+
+  <h2>Recolha de dados</h2>
+  <p><strong>A App não recolhe, armazena, transmite ou partilha quaisquer dados pessoais.</strong></p>
+  <ul>
+    <li>Não é necessária nem oferecida criação de conta ou login.</li>
+    <li>Nenhum dado é enviado para qualquer servidor. A App não tem funcionalidade de rede/internet.</li>
+    <li>Não há SDKs de analytics, publicidade ou rastreamento integrados.</li>
+    <li>Nenhum dado é partilhado com terceiros, porque nenhum dado sai do dispositivo.</li>
+  </ul>
+
+  <h2>Permissão de microfone</h2>
+  <p>A App pede a permissão <code>RECORD_AUDIO</code> exclusivamente para detetar a afinação musical (afinador) e medir o nível sonoro (medidor de decibéis). O áudio captado pelo microfone é:</p>
+  <ul>
+    <li>Processado inteiramente <strong>no próprio dispositivo</strong>, em tempo real.</li>
+    <li><strong>Nunca gravado, guardado, armazenado ou transmitido para qualquer lugar.</strong></li>
+    <li>Descartado imediatamente após cada análise.</li>
+  </ul>
+  <p>Podes revogar o acesso ao microfone a qualquer momento em Definições do Android → Apps → Pitch Fork Tuner → Permissões. O afinador e o medidor de decibéis não funcionam sem esta permissão; o metrónomo não precisa de acesso ao microfone.</p>
+
+  <h2>Dados guardados localmente</h2>
+  <p>A App guarda os seguintes dados apenas localmente no teu dispositivo (nunca transmitidos):</p>
+  <ul>
+    <li>As tuas afinações personalizadas.</li>
+    <li>As tuas afinações favoritas e a respetiva ordem.</li>
+    <li>Preferências da app (referência A4, sensibilidade do microfone, margem de afinação, idioma da app).</li>
+  </ul>
+  <p>Estes dados permanecem no teu dispositivo e são removidos se desinstalares a App. Nunca são copiados para nenhum servidor controlado pelo programador.</p>
+
+  <h2>Privacidade de crianças</h2>
+  <p>A App não recolhe, com conhecimento, informação de ninguém, incluindo crianças menores de 13 anos, porque não recolhe informação de ninguém.</p>
+
+  <h2>Alterações a esta política</h2>
+  <p>Se esta Política de Privacidade for atualizada, a data de "Última atualização" acima será alterada. Continuar a usar a App após alterações constitui aceitação da política atualizada.</p>
+
+  <h2>Contacto</h2>
+  <p>Questões sobre esta Política de Privacidade podem ser enviadas para: <strong>info@alexsouisa.eu</strong></p>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang-block]').forEach(function (el) {
+      el.classList.toggle('visible', el.getAttribute('data-lang') === lang);
+    });
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+    document.documentElement.lang = lang;
+    localStorage.setItem('pft-privacy-lang', lang);
+  }
+  setLang(localStorage.getItem('pft-privacy-lang') || 'en');
+</script>
 
 </body>
 </html>
